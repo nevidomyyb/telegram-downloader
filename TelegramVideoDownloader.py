@@ -3,6 +3,7 @@ import time
 import json
 from telethon import TelegramClient
 from telethon.tl.types import InputMessagesFilterVideo, Message
+import shutil
 
 class TelegramVideoDownloader:
     def __init__(self, api_id: str, api_hash:str , phone_number:str , chat_link:str , save_directory:str , progress_file:str ):
@@ -77,7 +78,15 @@ class TelegramVideoDownloader:
                     break
         if compact:
             if compact_map:
-                ...
+                paths = [file for file in os.listdir(self.save_directory) if os.path.isdir(os.path.join(self.save_directory, file))]
+                for path in paths:
+                    path_complete = os.path.join(self.save_directory, path)
+                    compacted_file = f"{path_complete}"
+                    shutil.make_archive(compacted_file, 'zip', path_complete)
+                    print(f"{path_complete} compacted.")
+                    shutil.rmtree(path_complete)
+                    print(f"{path_complete} removed.")
+            
                 
     async def list_chats(self):
         async for dialog in self.client.iter_dialogs():
