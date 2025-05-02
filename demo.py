@@ -41,7 +41,7 @@ with TelegramVideoDownloader.client:
             "#F123"]
         
     }
-    TelegramVideoDownloader.client.loop.run_until_complete(TelegramVideoDownloader.download_videos(compact=True, compact_quantity=3, compact_map=compact_map))
+    TelegramVideoDownloader.client.loop.run_until_complete(TelegramVideoDownloader.download_videos(compact=True, compact_map=compact_map))
     
 print("Download Finished")
 print(start - time())
