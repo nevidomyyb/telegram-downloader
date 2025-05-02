@@ -12,5 +12,5 @@
   - CHAT_LINK: the ID of the chat
   - SAVE_DIRECTORY: The directory to save the content
   - PROGRESS_FILE: a JSON where the app will track the progress
-- By default the app uses the message of the video to identify that content as a file to be downloaded, if you want to check and modify the method of identify a content you need to check the function `TelegramVideoDownloader.extractName()` and `TelegramVideoDownloader.TelegramVideoDownloader()`
+- By default the app uses the message of the video to identify that content as a file to be downloaded, if you want to check and modify the method of identify a content you need to check the function `TelegramVideoDownloader.extractName()` and `TelegramVideoDownloader.getFolderToCompactMap()`
 - Calling the `TelegramVideoDownloader.download_videos()` with compact=True need to pass compact_map which you can check in the `demo.py`
